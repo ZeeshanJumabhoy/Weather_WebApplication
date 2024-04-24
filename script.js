@@ -3,19 +3,14 @@ const weatherApi = {
   baseUrl: 'https://api.openweathermap.org/data/2.5/weather'
 }
 
-//anonymous function
-//adding event listener key press of enter
 let searchInputBox = document.getElementById('input-box');
 searchInputBox.addEventListener('keypress', (event) => {
   if (event.keyCode == 13) {
-    // console.log(searchInputBox.value);
     getWeatherReport(searchInputBox.value);
 
   }
 })
 
-
-//get waether report
 
 function getWeatherReport(city) {
   fetch(`${weatherApi.baseUrl}?q=${city}&appid=${weatherApi.key}&units=metric`)
@@ -81,7 +76,6 @@ function dateManage(dateArg) {
 }
 
 
-//making a function for the classname of icon
 function getIconClass(classarg) {
   if (classarg === 'Rain') {
     return 'fas fa-cloud-showers-heavy';
@@ -131,7 +125,6 @@ function reset() {
   input.value = "";
 }
 
-// funtion to add zero if hour and minute less than 10
 function addZero(i) {
   if (i < 10) {
     i = "0" + i;
@@ -139,8 +132,7 @@ function addZero(i) {
   return i;
 }
 function changeBg(cityName) {
-  // You need to fetch the background image based on the cityName from an API or a database
-  // For demonstration purposes, let's use a placeholder image
+  
   let bgImage = `https://source.unsplash.com/1600x900/?${cityName}`;
   document.body.style.backgroundImage = `url(${bgImage})`;
 }
